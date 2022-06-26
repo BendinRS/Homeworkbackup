@@ -16,13 +16,14 @@
     user:
       name: borg
 
-  - name: Create directory /var/backup
-    ansible.builtin.file:
+  - name: Creates directory /var/backup
+    file:
       path: /var/backup
       state: directory
       mode: '0755'
       owner: borg
       group: borg
+
 
   - name: Mount /var/backup
     mount:
@@ -32,16 +33,18 @@
       state: mounted
       fstype: none
 
-  - name: Create directory .ssh
-    ansible.builtin.file:
+  - name: Creates directory .ssh
+    file:
       path: /home/borg/.ssh
       state: directory
       mode: '0700'
       owner: borg
       group: borg
 
+
+
   - name: Create directory .authorized_keys
-    ansible.builtin.file:
+    file:
       path: /home/borg/.ssh/.authorized_keys
       state: directory
       mode: '0600'
