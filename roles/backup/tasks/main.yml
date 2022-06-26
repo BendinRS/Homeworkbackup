@@ -15,7 +15,7 @@
   - name: Create user borg
     ansible.builtin.user:
       name: borg
-      home: /home/borg
+      create_home: /home/borg
 
   - name: Create directory /var/backup
     ansible.builtin.file:
