@@ -18,6 +18,13 @@ MACHINES = {
   :client => {
         :box_name => "centos/7",
         :ip_addr => '192.168.11.150',
+        :disks => {
+            :sata1 => {
+                :dfile => home + '/VirtualBox VMs/sata1.vdi',
+                :size => 2048,
+                :port => 1
+            }
+        }
   },
 }
 
