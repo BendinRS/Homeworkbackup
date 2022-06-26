@@ -5,7 +5,7 @@ ENV["LC_ALL"] = "en_US.UTF-8"
 
 MACHINES = {
   :backup => {
-        :box_name => "centos/7",
+        :config.vm.box = "centos/7",
         :ip_addr => '192.168.11.160',
     :disks => {
         :sata1 => {
@@ -16,7 +16,7 @@ MACHINES = {
     }
   },
   :client => {
-        :box_name => "centos/7",
+        :config.vm.box = "centos/7",
         :ip_addr => '192.168.11.150',
         :disks => {
             :sata2 => {
