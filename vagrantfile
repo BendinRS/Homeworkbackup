@@ -26,6 +26,7 @@ Vagrant.configure("2") do |config|
                   },
         },
       },
+      },
       { :name => "client",
         :ip => "192.168.11.150",
       }
