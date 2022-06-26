@@ -19,13 +19,6 @@ Vagrant.configure("2") do |config|
                 :port => 1
                 },
         },
-                  {
-                :sata2 => {
-                :dfile => home + '/VirtualBox VMs/sata2.vdi',
-                :size => 2048,
-                :port => 2
-          },
-        },
       },
       { :name => "client",
         :ip => "192.168.11.150",
@@ -39,7 +32,6 @@ Vagrant.configure("2") do |config|
     #       config.vm.provision "ansible" do |ansible|
     #       ansible.playbook = "./rum.yml"
     #       ansible.limit = "all"
-        
     #   end
     end
     end
