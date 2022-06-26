@@ -18,6 +18,12 @@ Vagrant.configure("2") do |config|
                 :size => 2048,
                 :port => 1
                 },
+                {
+                  :sata2 => {
+                  :dfile => home + '/VirtualBox VMs/sata2.vdi',
+                  :size => 2048,
+                  :port => 2
+                  },
         },
       },
       { :name => "client",
