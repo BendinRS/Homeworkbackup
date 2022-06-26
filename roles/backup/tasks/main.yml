@@ -13,7 +13,7 @@
         - borgbackup
 
   - name: Create user borg
-    ansible.builtin.user:
+    user:
       name: borg
 
   - name: Create directory /var/backup
