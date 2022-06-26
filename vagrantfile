@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
         :disks => {
                 :sata1 => {
                 :dfile => home + '/VirtualBox VMs/sata1.vdi',
-                :size => 2048,
+                :size => 1024,
                 :port => 1
                 },
         },
