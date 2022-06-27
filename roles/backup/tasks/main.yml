@@ -35,6 +35,8 @@
       owner: borg
       group: borg
 
+  - name: rm lost+found
+    shell: rm -rf /var/backup/*
 
 
   - name: Creates directory .ssh
