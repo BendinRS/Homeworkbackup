@@ -16,13 +16,6 @@
     user:
       name: borg
 
-  - name: Creates directory /var/backup
-    file:
-      path: /var/backup
-      state: directory
-      mode: '0700'
-      owner: borg
-      group: borg
 
   - name: format disk sdb
     filesystem: dev=/dev/sdb fstype=ext4
@@ -33,6 +26,14 @@
       src: /dev/sdb
       state: mounted
       fstype: ext4
+
+  - name: Creates directory /var/backup
+    file:
+      path: /var/backup
+      state: directory
+      mode: '0700'
+      owner: borg
+      group: borg
 
 
 
