@@ -39,6 +39,7 @@ BorgBackup это дедуплицирующая программа для ре�
 
 ```borg init --encryption=repokey borg@192.168.11.160:/var/backup/```  
 4. Ручная проверка
+
 ```borg create --stats --list borg@192.168.11.160:/var/backup/::"etc-{now:%Y-%m-%d_%H:%M:%S}" /etc```
     
 5. Результат  
