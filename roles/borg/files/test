@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+##
+## Задание переменных окружения для Borg
+##
+
+## если используется нестандартный SSH-ключ,
+## то его надо явно указать:
+# export BORG_RSH="ssh -i /home/userXY/.ssh/id_ed25519"
+
+## пароль репозитория Borg можно указать в переменной
+## окружения, чтобы не вводить его при каждом запуске
+# export BORG_PASSPHRASE="top_secret_passphrase"
+
+##
+## Задание переменных окружения
+##
+
+LOG="/var/log/borg/backup.log"
+BACKUP_USER="borg"
+REPOSITORY_DIR="server1"
+
+## Совет: при использовании Backup Space следует использовать домен
+## 'your-storagebox.de" вместо "your-backup.de'
+
+REPOSITORY="ssh://${BACKUP_USER}@${BACKUP_USER}.your-storagebox.de:23/./backups/${REPOSITORY_DIR}"
+
+##
+## Вывод в файл журнала
+##
+
+exec > >(tee -i ${LOG})
+exec 2>&1
+
+echo "###### Backup started: $(date) ######"
+
+##
+## Здесь можно выполнить дополнительные действия
+## перед созданием резервной копии, например:
+##
+## - сделать список установленного программного обеспечения
+## - сделать дамп базы данных
+##
+
+##
+## Передача файлов в репозиторий.
+## В данном примере будут скопированы директории
+## root, etc, var/www и home.
+## Также есть список исключений, который не должен входить
+## в резервную копию.
+##
+
+echo "Transfer files ..."
+borg create -v --stats                   \
+    $REPOSITORY::'{now:%Y-%m-%d_%H:%M}'  \
+    /root                                \
+    /etc                                 \
+    /var/www                             \
+    /home                                \
+    --exclude /dev                       \
+    --exclude /proc                      \
+    --exclude /sys                       \
+    --exclude /var/run                   \
+    --exclude /run                       \
+    --exclude /lost+found                \
+    --exclude /mnt                       \
+    --exclude /var/lib/lxcfs
+
+echo "###### Backup ended: $(date) ######"
