@@ -55,7 +55,7 @@
 
   - name: copy ssh-key
     template:
-       src: roles/backup/files/client/etc/ssh/id_rsa.pub
+       src: roles/backup/files/client/root/.ssh/id_rsa.pub 
        dest:  /home/borg/.ssh/
 
   - name: name file
