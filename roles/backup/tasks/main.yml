@@ -20,7 +20,7 @@
     file:
       path: /var/backup
       state: directory
-      mode: '0755'
+      mode: '0700'
       owner: borg
       group: borg
 
@@ -33,6 +33,7 @@
       src: /dev/sdb
       state: mounted
       fstype: ext4
+
 
 
   - name: Creates directory .ssh
