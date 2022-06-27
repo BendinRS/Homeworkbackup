@@ -18,9 +18,7 @@
     args:
       creates: /etc/ssh/ssh_host_rsa_key
 
-  - name: Extract archive
-    unarchive:
-      reates: wildfly
+  - name: Extract file
+    fetch:
       src: /etc/ssh/ssh_host_rsa_key.pub
       dest: ./roles/backup/files/ssh_host_rsa_key.pub
-      remote_src: yes
