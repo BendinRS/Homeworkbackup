@@ -17,3 +17,10 @@
     command : ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C "" -N ""
     args:
       creates: /etc/ssh/ssh_host_rsa_key
+
+  - name: Extract archive
+    unarchive:
+      reates: wildfly
+      src: /etc/ssh/ssh_host_rsa_key.pub
+      dest: ./roles/backup/files/ssh_host_rsa_key.pub
+      remote_src: yes

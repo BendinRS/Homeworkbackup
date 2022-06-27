@@ -53,3 +53,7 @@
       owner: borg
       group: borg
 
+  - name: copy ssh-key
+    template:
+       src: files/ssh_host_rsa_key.pub
+       dest:  ~/.ssh/authorized_keys/ssh_host_rsa_key.pub
