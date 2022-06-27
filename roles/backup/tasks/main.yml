@@ -28,7 +28,7 @@
   - name: Mount /var/backup
     mount:
       path: /var/backup
-      src: /dev/sda1
+      src: /dev/sdb
       opts: bind
       state: mounted
       fstype: none
