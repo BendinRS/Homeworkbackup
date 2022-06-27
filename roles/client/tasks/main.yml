@@ -22,22 +22,3 @@
     fetch:
       src: /root/.ssh/id_rsa.pub
       dest: ./roles/backup/files/
-
-  - name: inicial repo /var/backup
-    shell: borg init --encryption=repokey borg@192.168.11.160:/var/backup/
-
-  - name: copy file borg-backup.service
-    template:
-       src: files/borg-backup.service
-       dest: /etc/systemd/system/
-
-  - name: copy file borg-backup.timer
-    template:
-       src: files/borg-backup.timer
-       dest: /etc/systemd/system/
-
-  - name: enable borg-backup.timer
-    service:
-      name: borg-backup.timer
-      state: started 
-      enabled: yes

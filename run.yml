@@ -9,3 +9,8 @@
   roles:
     - backup
 
+- hosts: backup_client
+  become: true
+  roles:
+    - borg
+
