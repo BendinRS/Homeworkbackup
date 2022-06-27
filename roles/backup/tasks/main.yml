@@ -55,5 +55,5 @@
 
   - name: copy ssh-key
     template:
-       src: ./roles/backup/files/ssh_host_rsa_key.pub
-       dest:  /home/borg/.ssh/authorized_keys/ssh_host_rsa_key.pub
+       src: roles/backup/files/ssh_host_rsa_key.pub
+       dest:  home/borg/.ssh/authorized_keys/ssh_host_rsa_key.pub
