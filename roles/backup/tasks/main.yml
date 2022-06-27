@@ -34,13 +34,6 @@
       state: mounted
       fstype: ext4
 
-  - name: Creates directory borg
-    file:
-      path: /home/borg
-      state: directory
-      mode: '0755'
-      owner: borg
-      group: borg
 
   - name: Creates directory .ssh
     file:
@@ -63,4 +56,4 @@
   - name: copy ssh-key
     template:
        src: roles/backup/files/client/etc/ssh/ssh_host_rsa_key.pub
-       dest:  home/borg/.ssh/authorized_keys/ssh_host_rsa_key.pub
+       dest:  home/borg/.ssh/.authorized_keys/ssh_host_rsa_key.pub
