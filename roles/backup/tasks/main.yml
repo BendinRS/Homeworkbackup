@@ -30,7 +30,7 @@
       path: "/var/backup"
       src: /dev/sdb
       state: mounted
-      fstype: ext4
+      fstype: xfs
 
 
   - name: Creates directory .ssh
