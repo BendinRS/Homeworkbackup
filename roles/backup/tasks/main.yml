@@ -31,7 +31,8 @@
   #     src: /dev/sdb
   #     state: mounted
   #     fstype: none
-  - name: Mount /var/backup
+
+  - name: Mount and bind a volume
     ansible.posix.mount:
       path: /var/backup
       src: /dev/sdb
