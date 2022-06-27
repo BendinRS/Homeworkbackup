@@ -25,20 +25,13 @@
       group: borg
 
 
-  # - name: Mount /var/backup
-  #   mount:
-  #     path: "/var/backup"
-  #     src: /dev/sdb
-  #     state: mounted
-  #     fstype: none
-
-  - name: Mount and bind a volume
-    ansible.posix.mount:
-      path: /var/backup
+  - name: Mount /var/backup
+    mount:
+      path: "/var/backup"
       src: /dev/sdb
-      opts: bind
       state: mounted
       fstype: none
+
 
   - name: Creates directory .ssh
     file:
