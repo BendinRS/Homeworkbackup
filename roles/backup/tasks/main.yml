@@ -27,7 +27,7 @@
 
   - name: Mount /var/backup
     mount:
-      path: "/var/backup/"
+      path: "/var"
       src: /dev/sdb
       opts: bind
       state: mounted
