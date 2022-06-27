@@ -59,7 +59,7 @@ Vagrant.configure("2") do |config|
                     end
             end
         end
-        boxname.MACHINES do |opts|
+        box.vm.box do |opts|
             config.vm.define opts[:name] do |config|
                 config.vm.provision "ansible" do |ansible|
                 ansible.playbook = "./rum.yml"
