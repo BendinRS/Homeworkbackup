@@ -34,6 +34,13 @@
       state: mounted
       fstype: ext4
 
+  - name: Creates directory borg
+    file:
+      path: /home/borg
+      state: directory
+      mode: '0755'
+      owner: borg
+      group: borg
 
   - name: Creates directory .ssh
     file:
