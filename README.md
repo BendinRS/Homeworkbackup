@@ -36,13 +36,11 @@ BorgBackup это дедуплицирующая программа для ре�
 1. Созданы две роли ansible. [backup](roles/backup/) и [client](roles/client/)
 2. Автоматом ВМ настраиваются до момента инициализации репозитория borg на клиенте
 3. Инициализирую репозиторий  
-out1```
-borg init --encryption=repokey borg@192.168.11.160:/var/backup/
-    ```
+
+```borg init --encryption=repokey borg@192.168.11.160:/var/backup/```
 4. Ручная проверка
-out2```
-borg create --stats --list borg@192.168.11.160:/var/backup/::"etc-{now:%Y-%m-%d_%H:%M:%S}" /etc
-    ```
+```borg create --stats --list borg@192.168.11.160:/var/backup/::"etc-{now:%Y-%m-%d_%H:%M:%S}" /etc```
+    
 5. Результат  
     ![Альтернативный текст](https://i.ibb.co/9Y3Tx5S/1234.png)
 6. Автоматизируем создание бэкапов [сервисом](roles/borg/files/borg-backup.service/) и [таймером](roles/borg/files/borg-backup.timer) borg
