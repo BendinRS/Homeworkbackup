@@ -1,8 +1,12 @@
 ---
 
+  - name: copy script.sh
+    template:
+       src: files/borg-backup.service
+       dest: /home/script.sh
 
   - name: inicial repo /var/backup
-    shell: borg init --encryption=repokey borg@192.168.11.160:/var/backup/
+    shell: sh /home/script.sh
 
   - name: copy file borg-backup.service
     template:
@@ -17,5 +21,14 @@
   - name: enable borg-backup.timer
     service:
       name: borg-backup.timer
+      state: started 
+      enabled: yes
+
+  - name: hr hr hr 
+    shell: sleep 10
+
+  - name: enable borg-backup.service
+    service:
+      name: borg-backup.service
       state: started 
       enabled: yes
