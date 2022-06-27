@@ -29,10 +29,8 @@
     mount:
       path: "/var/backup"
       src: /dev/sdb
-      opts: bind
       state: mounted
       fstype: none
-    state: present
 
   - name: Creates directory .ssh
     file:
