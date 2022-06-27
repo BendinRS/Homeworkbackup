@@ -14,11 +14,11 @@
         - borgbackup
 
   - name: Generate /etc/ssh/ RSA host key
-    command : ssh-keygen -q -t rsa -f /etc/ssh/ssh_host_rsa_key -C "" -N ""
+    command : ssh-keygen -q -t rsa -f /root/.ssh/id_rsa -C "" -N ""
     args:
-      creates: /etc/ssh/ssh_host_rsa_key
+      creates: /root/.ssh/id_rsa
 
   - name: Extract file
     fetch:
-      src: /etc/ssh/ssh_host_rsa_key.pub
+      src: /root/.ssh/id_rsa.pub
       dest: ./roles/backup/files/

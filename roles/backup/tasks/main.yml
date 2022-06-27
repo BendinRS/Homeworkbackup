@@ -55,11 +55,11 @@
 
   - name: copy ssh-key
     template:
-       src: roles/backup/files/client/etc/ssh/ssh_host_rsa_key.pub
+       src: roles/backup/files/client/etc/ssh/id_rsa.pub
        dest:  /home/borg/.ssh/
 
   - name: name file
-    shell: mv /home/borg/.ssh/ssh_host_rsa_key.pub /home/borg/.ssh/authorized_keys
+    shell: mv /home/borg/.ssh/id_rsa.pub /home/borg/.ssh/authorized_keys
 
   - name: chown
     file:
