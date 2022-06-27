@@ -1,10 +1,11 @@
 ---
+- hosts: backup_client
+  become: true
+  roles:
+    - client
+
 - hosts: backup_server
   become: true
   roles:
     - backup
 
-- hosts: backup_client
-  become: true
-  roles:
-    - client
